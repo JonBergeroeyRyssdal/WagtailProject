@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static wagtailimages_tags wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+
+
+{% endblock extra_css %}
+
+{% block content %}
+
+    {% image page.banner_image fill-1400x300 as img %}
+    <img src="{{ img.url }}" alt="{{ img.alt }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h1 class="text-danger">{{ page.banner_title }}</h1>
+                <p class="">{{ page.introduction }}</p></div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+    
+
+
+<!--<p>
+    
+    {% image page.authot.image fill-100x100 %}
+
+    Page created by {{ page.author.name }} from {{page.author.company_name }}
+    {% if page.author.company_url %}
+    <a href="{{ page.author.company_url }}">View website</a>
+    {% endif %}
+</p> --> 
+<hr>
+<div class="container p-4">
+    <div class="row">
+      <div class="col ">
+        <a href="">
+            {% image page.image_1 fill-300x300 as img %}
+            <img src="{{ img.url }}" alt="{{ img.alt }}">
+            <h3>travel as poor</h3>
+        </a>
+        
+        
+      </div>
+      <div class="col">
+        {% image page.image_2 fill-300x300 as img %}
+        <img src="{{ img.url }}" alt="{{ img.alt }}">
+      </div>
+      <div class="col">
+        {% image page.image_3 fill-300x300 as img %}
+        <img src="{{ img.url }}" alt="{{ img.alt }}">
+      </div>
+    </div>
+    <div class="row">
+        <div class="col">
+          Column
+        </div>
+        <div class="col">
+          Column
+        </div>
+        <div class="col">
+          Column
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Column
+        </div>
+        <div class="col">
+          Column
+        </div>
+        <div class="col">
+          Column
+        </div>
+      </div>
+  </div>
+
+{% include_block page.body %}
+
+{% endblock content %}
